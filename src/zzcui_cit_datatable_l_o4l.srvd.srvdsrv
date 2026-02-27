@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service Definition for ZZCC_CIT_DATATABLE_LL'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZZCC_CIT_DATATABLE_LL'
+  }
+}
+define service ZZCUI_CIT_DATATABLE_L_O4L provider contracts odata_v4_ui {
+  expose ZZCC_CIT_DATATABLE_LL;
+}

@@ -1,0 +1,61 @@
+managed implementation in class ZZCBP_R_CIT_DATATABLE_LL unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZZCR_CIT_DATATABLE_LL alias ZzcrCitDatatableLl
+persistent table ZCIT_DATATABLE_L
+extensible
+draft table ZZCCT_DTTBLE_DL
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+{
+  field ( readonly )
+   BookID,
+   LocalCreatedBy,
+   LocalCreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+
+  field ( numbering : managed )
+   BookID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZCIT_DATATABLE_L corresponding extensible
+  {
+    BookID = BOOK_ID;
+    BookTitle = BOOK_TITLE;
+    AuthorName = AUTHOR_NAME;
+    IsbnNumber = ISBN_NUMBER;
+    Category = CATEGORY;
+    Publisher = PUBLISHER;
+    PublicationDate = PUBLICATION_DATE;
+    Language = LANGUAGE;
+    TotalCopies = TOTAL_COPIES;
+    AvailableCopies = AVAILABLE_COPIES;
+    IssuedToStudentID = ISSUED_TO_STUDENT_ID;
+    IssueDate = ISSUE_DATE;
+    ReturnDate = RETURN_DATE;
+    FineAmount = FINE_AMOUNT;
+    CreatedBy = CREATED_BY;
+    CreatedAt = CREATED_AT;
+    LastChangedBy = LAST_CHANGED_BY;
+    LocalCreatedBy = LOCAL_CREATED_BY;
+    LocalCreatedAt = LOCAL_CREATED_AT;
+    LocalLastChangedBy = LOCAL_LAST_CHANGED_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+    LastChangedAt = LAST_CHANGED_AT;
+  }
+
+}
